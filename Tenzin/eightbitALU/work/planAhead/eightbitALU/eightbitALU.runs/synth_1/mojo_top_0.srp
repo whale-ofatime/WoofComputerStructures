@@ -3,7 +3,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.26 secs
+Total CPU time to Xst completion: 0.27 secs
  
 --> Reading design: mojo_top_0.prj
 
@@ -77,10 +77,6 @@ Elaborating module <adder_1>.
 Elaborating module <shifter_2>.
 
 Elaborating module <boolean_3>.
-WARNING:HDLCompiler:413 - "C:/Users/HanWei/Dropbox/SUTDNotes/ISTD1/CompStruct/WoofComputerStructures/Tenzin/eightbitALU/work/planAhead/eightbitALU/eightbitALU.srcs/sources_1/imports/verilog/boolean_3.v" Line 25: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "C:/Users/HanWei/Dropbox/SUTDNotes/ISTD1/CompStruct/WoofComputerStructures/Tenzin/eightbitALU/work/planAhead/eightbitALU/eightbitALU.srcs/sources_1/imports/verilog/boolean_3.v" Line 26: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "C:/Users/HanWei/Dropbox/SUTDNotes/ISTD1/CompStruct/WoofComputerStructures/Tenzin/eightbitALU/work/planAhead/eightbitALU/eightbitALU.srcs/sources_1/imports/verilog/boolean_3.v" Line 27: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "C:/Users/HanWei/Dropbox/SUTDNotes/ISTD1/CompStruct/WoofComputerStructures/Tenzin/eightbitALU/work/planAhead/eightbitALU/eightbitALU.srcs/sources_1/imports/verilog/boolean_3.v" Line 28: Result of 8-bit expression is truncated to fit in 1-bit target.
 
 Elaborating module <compare_4>.
 
@@ -125,10 +121,10 @@ Unit <mojo_top_0> synthesized.
 Synthesizing Unit <adder_1>.
     Related source file is "C:/Users/HanWei/Dropbox/SUTDNotes/ISTD1/CompStruct/WoofComputerStructures/Tenzin/eightbitALU/work/planAhead/eightbitALU/eightbitALU.srcs/sources_1/imports/verilog/adder_1.v".
 WARNING:Xst:647 - Input <aLUFN<5:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 8-bit subtractor for signal <a[7]_b[7]_sub_2_OUT> created at line 30.
-    Found 8-bit adder for signal <a[7]_b[7]_add_0_OUT> created at line 27.
-    Found 8x8-bit multiplier for signal <n0023> created at line 33.
-    Found 8-bit 4-to-1 multiplexer for signal <p> created at line 25.
+    Found 8-bit subtractor for signal <a[7]_b[7]_sub_2_OUT> created at line 29.
+    Found 8-bit adder for signal <a[7]_b[7]_add_0_OUT> created at line 26.
+    Found 8x8-bit multiplier for signal <n0023> created at line 32.
+    Found 8-bit 4-to-1 multiplexer for signal <p> created at line 24.
     Summary:
 	inferred   1 Multiplier(s).
 	inferred   1 Adder/Subtractor(s).
@@ -264,13 +260,13 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 84
+# BELS                             : 97
 #      GND                         : 2
 #      LUT2                        : 2
-#      LUT3                        : 16
-#      LUT4                        : 5
-#      LUT5                        : 7
-#      LUT6                        : 35
+#      LUT3                        : 12
+#      LUT4                        : 12
+#      LUT5                        : 16
+#      LUT6                        : 36
 #      MUXCY                       : 7
 #      VCC                         : 2
 #      XORCY                       : 8
@@ -288,14 +284,14 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                   65  out of   5720     1%  
-    Number used as Logic:                65  out of   5720     1%  
+ Number of Slice LUTs:                   78  out of   5720     1%  
+    Number used as Logic:                78  out of   5720     1%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     65
-   Number with an unused Flip Flop:      65  out of     65   100%  
-   Number with an unused LUT:             0  out of     65     0%  
-   Number of fully used LUT-FF pairs:     0  out of     65     0%  
+ Number of LUT Flip Flop pairs used:     78
+   Number with an unused Flip Flop:      78  out of     78   100%  
+   Number with an unused LUT:             0  out of     78     0%  
+   Number of fully used LUT-FF pairs:     0  out of     78     0%  
    Number of unique control sets:         0
 
 IO Utilization: 
@@ -336,7 +332,7 @@ Speed Grade: -2
    Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
-   Maximum combinational path delay: 12.757ns
+   Maximum combinational path delay: 13.407ns
 
 Timing Details:
 ---------------
@@ -344,9 +340,9 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 620 / 11
+  Total number of paths / destination ports: 949 / 11
 -------------------------------------------------------------------------
-Delay:               12.757ns (Levels of Logic = 6)
+Delay:               13.407ns (Levels of Logic = 7)
   Source:            io_dip<7> (PAD)
   Destination:       io_led<16> (PAD)
 
@@ -354,16 +350,17 @@ Delay:               12.757ns (Levels of Logic = 6)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            14   1.328   1.126  io_dip_7_IBUF (Sh15)
+     IBUF:I->O            16   1.328   1.181  io_dip_7_IBUF (Sh15)
      begin scope: 'adder:a<7>'
-     DSP48A1:B7->M7        3   3.894   1.196  Mmult_n0023 (n0023<7>)
-     LUT6:I1->O            1   0.254   1.112  z3 (z2)
-     LUT6:I1->O            1   0.254   0.681  z4 (z<0>)
+     DSP48A1:B7->M4        1   3.894   0.790  Mmult_n0023 (n0023<4>)
+     LUT4:I2->O            2   0.250   1.181  Mmux_p351 (out<4>)
+     LUT6:I0->O            1   0.254   0.682  z_SW0 (N2)
+     LUT6:I5->O            1   0.254   0.681  z (z<0>)
      end scope: 'adder:z<0>'
      OBUF:I->O                 2.912          io_led_16_OBUF (io_led<16>)
     ----------------------------------------
-    Total                     12.757ns (8.642ns logic, 4.115ns route)
-                                       (67.7% logic, 32.3% route)
+    Total                     13.407ns (8.892ns logic, 4.515ns route)
+                                       (66.3% logic, 33.7% route)
 
 =========================================================================
 
@@ -373,14 +370,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 26.00 secs
-Total CPU time to Xst completion: 25.22 secs
+Total REAL time to Xst completion: 30.00 secs
+Total CPU time to Xst completion: 29.33 secs
  
 --> 
 
-Total memory usage is 243792 kilobytes
+Total memory usage is 270048 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   19 (   0 filtered)
+Number of warnings :   15 (   0 filtered)
 Number of infos    :    2 (   0 filtered)
 

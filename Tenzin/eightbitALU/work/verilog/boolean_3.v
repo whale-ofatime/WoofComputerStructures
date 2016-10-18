@@ -13,13 +13,13 @@ module boolean_3 (
   
   
   
-  reg [0:0] zerozero;
+  reg [7:0] zerozero;
   
-  reg [0:0] zeroone;
+  reg [7:0] zeroone;
   
-  reg [0:0] onezero;
+  reg [7:0] onezero;
   
-  reg [0:0] oneone;
+  reg [7:0] oneone;
   
   always @* begin
     zerozero = ~a & ~b & {4'h8{aLUFN[0+0-:1]}};

@@ -12,8 +12,6 @@ module adder (
   
   always {
     p = 8b0;
-    out = p;  // always block is like a while(true) block
-    // only need to specify that out is equal to p here.
     case (aLUFN[1:0]) {
       0: p = a + b;
       1: p = a - b;
@@ -24,6 +22,8 @@ module adder (
       0: z = 1;
       default: z = 0;
       }
+    out = p;  // always block is like a while(true) block
+    // only need to specify that out is equal to p here.
     n = p[7];
     v = (a[7] & (b[7] ^ aLUFN[0]) & !p[7]) | (!a[7] & !(b[7] ^ aLUFN[0]) & p[7]);
   }

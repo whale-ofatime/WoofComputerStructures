@@ -50,7 +50,7 @@ module mojo_top (
     b = io_dip[1];
     aLUFN = io_dip[2][5:0];
     
-    adder.a= a;
+    adder.a = a;
     adder.b = b;
     adder.aLUFN = aLUFN;
     

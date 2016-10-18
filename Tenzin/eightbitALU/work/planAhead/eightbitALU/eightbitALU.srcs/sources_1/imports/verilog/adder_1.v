@@ -20,7 +20,6 @@ module adder_1 (
   
   always @* begin
     p = 8'h00;
-    out = p;
     
     case (aLUFN[0+1-:2])
       1'h0: begin
@@ -45,6 +44,7 @@ module adder_1 (
         z = 1'h0;
       end
     endcase
+    out = p;
     n = p[7+0-:1];
     v = (a[7+0-:1] & (b[7+0-:1] ^ aLUFN[0+0-:1]) & !p[7+0-:1]) | (!a[7+0-:1] & !(b[7+0-:1] ^ aLUFN[0+0-:1]) & p[7+0-:1]);
   end

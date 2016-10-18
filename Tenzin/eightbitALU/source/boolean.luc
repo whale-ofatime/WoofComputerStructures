@@ -18,12 +18,5 @@ module boolean (
     onezero = ~a & b & 8x{aLUFN[2]};
     oneone = a & b & 8x{aLUFN[3]};
     out = (zerozero | zeroone | onezero | oneone);
-    //case (aLUFN[3:0]){
-      //6: out = a ^ b;
-      //8: out = a & b;
-      //10: out = a;
-      //14: out = a | b;
-      //default: out = 0;
-    //}
   }
 }
