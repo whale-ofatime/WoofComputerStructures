@@ -1,0 +1,1362 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Users\HanWei\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle
+ise -o mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+
+Design file:              mojo_top_0_routed.ncd
+Physical constraint file: mojo_top_0.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 990 paths analyzed, 319 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   6.444ns.
+--------------------------------------------------------------------------------
+Slack:                  13.556ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_rx/M_rxd_q (FF)
+  Destination:          avr/uart_rx/M_state_q_FSM_FFd1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.776ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.633ns (0.629 - 1.262)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_rx/M_rxd_q to avr/uart_rx/M_state_q_FSM_FFd1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X7Y2.Q4       Tickq                 1.778   avr/uart_rx/M_rxd_q
+                                                       avr/uart_rx/M_rxd_q
+    SLICE_X8Y31.B2       net (fanout=3)        2.921   avr/uart_rx/M_rxd_q
+    SLICE_X8Y31.B        Tilo                  0.254   avr/uart_rx/M_state_q_FSM_FFd2
+                                                       avr/uart_rx/M_state_q_FSM_FFd1-In
+    SLICE_X8Y31.A3       net (fanout=1)        0.484   avr/uart_rx/M_state_q_FSM_FFd1-In
+    SLICE_X8Y31.CLK      Tas                   0.339   avr/uart_rx/M_state_q_FSM_FFd2
+                                                       avr/uart_rx/M_state_q_FSM_FFd1_rstpot
+                                                       avr/uart_rx/M_state_q_FSM_FFd1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.776ns (2.371ns logic, 3.405ns route)
+                                                       (41.0% logic, 59.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.956ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_2 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.539ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_2 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y37.CQ      Tcko                  0.476   avr/uart_tx/M_savedData_q[3]
+                                                       avr/uart_tx/M_savedData_q_2
+    SLICE_X16Y31.D1      net (fanout=1)        1.349   avr/uart_tx/M_savedData_q[2]
+    SLICE_X16Y31.D       Tilo                  0.254   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A2      net (fanout=1)        0.746   avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.539ns (2.167ns logic, 4.372ns route)
+                                                       (33.1% logic, 66.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  13.968ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_3 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.527ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_3 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y37.DQ      Tcko                  0.476   avr/uart_tx/M_savedData_q[3]
+                                                       avr/uart_tx/M_savedData_q_3
+    SLICE_X15Y31.B1      net (fanout=1)        1.514   avr/uart_tx/M_savedData_q[3]
+    SLICE_X15Y31.B       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A3      net (fanout=1)        0.564   avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.527ns (2.172ns logic, 4.355ns route)
+                                                       (33.3% logic, 66.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.059ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_rx/M_rxd_q (FF)
+  Destination:          avr/uart_rx/M_savedData_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.231ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.675ns (0.680 - 1.355)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_rx/M_rxd_q to avr/uart_rx/M_savedData_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X7Y2.Q4       Tickq                 1.778   avr/uart_rx/M_rxd_q
+                                                       avr/uart_rx/M_rxd_q
+    SLICE_X13Y37.DX      net (fanout=3)        3.339   avr/uart_rx/M_rxd_q
+    SLICE_X13Y37.CLK     Tdick                 0.114   M_avr_rx_data[7]
+                                                       avr/uart_rx/M_savedData_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      5.231ns (1.892ns logic, 3.339ns route)
+                                                       (36.2% logic, 63.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.059ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_rx/M_rxd_q (FF)
+  Destination:          avr/uart_rx/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.273ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.633ns (0.629 - 1.262)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_rx/M_rxd_q to avr/uart_rx/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X7Y2.Q4       Tickq                 1.778   avr/uart_rx/M_rxd_q
+                                                       avr/uart_rx/M_rxd_q
+    SLICE_X8Y31.D3       net (fanout=3)        2.759   avr/uart_rx/M_rxd_q
+    SLICE_X8Y31.D        Tilo                  0.254   avr/uart_rx/M_state_q_FSM_FFd2
+                                                       avr/uart_rx/M_state_q_FSM_FFd2-In
+    SLICE_X8Y31.C6       net (fanout=1)        0.143   avr/uart_rx/M_state_q_FSM_FFd2-In
+    SLICE_X8Y31.CLK      Tas                   0.339   avr/uart_rx/M_state_q_FSM_FFd2
+                                                       avr/uart_rx/M_state_q_FSM_FFd2_rstpot
+                                                       avr/uart_rx/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                      5.273ns (2.371ns logic, 2.902ns route)
+                                                       (45.0% logic, 55.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.246ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_0 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.249ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_0 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y37.AQ      Tcko                  0.476   avr/uart_tx/M_savedData_q[3]
+                                                       avr/uart_tx/M_savedData_q_0
+    SLICE_X16Y31.D6      net (fanout=1)        1.059   avr/uart_tx/M_savedData_q[0]
+    SLICE_X16Y31.D       Tilo                  0.254   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A2      net (fanout=1)        0.746   avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.249ns (2.167ns logic, 4.082ns route)
+                                                       (34.7% logic, 65.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.262ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_4 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.233ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_4 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y37.AQ      Tcko                  0.430   avr/uart_tx/M_savedData_q[7]
+                                                       avr/uart_tx/M_savedData_q_4
+    SLICE_X16Y31.D3      net (fanout=1)        1.089   avr/uart_tx/M_savedData_q[4]
+    SLICE_X16Y31.D       Tilo                  0.254   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A2      net (fanout=1)        0.746   avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.233ns (2.121ns logic, 4.112ns route)
+                                                       (34.0% logic, 66.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.275ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_1 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.220ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_1 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y37.BQ      Tcko                  0.476   avr/uart_tx/M_savedData_q[3]
+                                                       avr/uart_tx/M_savedData_q_1
+    SLICE_X15Y31.B2      net (fanout=1)        1.207   avr/uart_tx/M_savedData_q[1]
+    SLICE_X15Y31.B       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A3      net (fanout=1)        0.564   avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.220ns (2.172ns logic, 4.048ns route)
+                                                       (34.9% logic, 65.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.384ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_6 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.111ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_6 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y37.CQ      Tcko                  0.430   avr/uart_tx/M_savedData_q[7]
+                                                       avr/uart_tx/M_savedData_q_6
+    SLICE_X16Y31.D5      net (fanout=1)        0.967   avr/uart_tx/M_savedData_q[6]
+    SLICE_X16Y31.D       Tilo                  0.254   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A2      net (fanout=1)        0.746   avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.111ns (2.121ns logic, 3.990ns route)
+                                                       (34.7% logic, 65.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.451ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_bitCtr_q_1 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.041ns (Levels of Logic = 2)
+  Clock Path Skew:      0.527ns (1.152 - 0.625)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_bitCtr_q_1 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y31.AQ      Tcko                  0.525   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_bitCtr_q_1
+    SLICE_X16Y31.D2      net (fanout=5)        0.802   avr/uart_tx/M_bitCtr_q[1]
+    SLICE_X16Y31.D       Tilo                  0.254   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A2      net (fanout=1)        0.746   avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.041ns (2.216ns logic, 3.825ns route)
+                                                       (36.7% logic, 63.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.470ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_5 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.025ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_5 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y37.BQ      Tcko                  0.430   avr/uart_tx/M_savedData_q[7]
+                                                       avr/uart_tx/M_savedData_q_5
+    SLICE_X15Y31.B6      net (fanout=1)        1.058   avr/uart_tx/M_savedData_q[5]
+    SLICE_X15Y31.B       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A3      net (fanout=1)        0.564   avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      6.025ns (2.126ns logic, 3.899ns route)
+                                                       (35.3% logic, 64.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.607ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_bitCtr_q_1 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.885ns (Levels of Logic = 2)
+  Clock Path Skew:      0.527ns (1.152 - 0.625)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_bitCtr_q_1 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y31.AQ      Tcko                  0.525   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_bitCtr_q_1
+    SLICE_X15Y31.B4      net (fanout=5)        0.823   avr/uart_tx/M_bitCtr_q[1]
+    SLICE_X15Y31.B       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A3      net (fanout=1)        0.564   avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      5.885ns (2.221ns logic, 3.664ns route)
+                                                       (37.7% logic, 62.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.647ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_13 (FF)
+  Destination:          avr/uart_tx/M_state_q_FSM_FFd1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.266ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.052ns (0.600 - 0.652)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_13 to avr/uart_tx/M_state_q_FSM_FFd1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y16.BQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[13]
+                                                       avr/cclk_detector/M_ctr_q_13
+    SLICE_X11Y14.C2      net (fanout=2)        1.656   avr/cclk_detector/M_ctr_q[13]
+    SLICE_X11Y14.C       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out1
+    SLICE_X16Y29.C5      net (fanout=10)       1.972   avr/out
+    SLICE_X16Y29.C       Tilo                  0.255   avr/M_state_q_FSM_FFd2
+                                                       avr/M_cclk_detector_ready_inv1_2
+    SLICE_X16Y29.B4      net (fanout=1)        0.309   avr/M_cclk_detector_ready_inv11
+    SLICE_X16Y29.CLK     Tas                   0.339   avr/M_state_q_FSM_FFd2
+                                                       avr/uart_tx/M_state_q_FSM_FFd1_rstpot
+                                                       avr/uart_tx/M_state_q_FSM_FFd1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.266ns (1.329ns logic, 3.937ns route)
+                                                       (25.2% logic, 74.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.658ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_savedData_q_7 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.837ns (Levels of Logic = 2)
+  Clock Path Skew:      0.530ns (1.240 - 0.710)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_savedData_q_7 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y37.DQ      Tcko                  0.430   avr/uart_tx/M_savedData_q[7]
+                                                       avr/uart_tx/M_savedData_q_7
+    SLICE_X15Y31.B3      net (fanout=1)        0.870   avr/uart_tx/M_savedData_q[7]
+    SLICE_X15Y31.B       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A3      net (fanout=1)        0.564   avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      5.837ns (2.126ns logic, 3.711ns route)
+                                                       (36.4% logic, 63.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.752ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_13 (FF)
+  Destination:          avr/spi_slave/M_data_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.252ns (Levels of Logic = 3)
+  Clock Path Skew:      0.039ns (0.691 - 0.652)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_13 to avr/spi_slave/M_data_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y16.BQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[13]
+                                                       avr/cclk_detector/M_ctr_q_13
+    SLICE_X11Y14.C2      net (fanout=2)        1.656   avr/cclk_detector/M_ctr_q[13]
+    SLICE_X11Y14.C       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out1
+    SLICE_X7Y5.D5        net (fanout=10)       1.270   avr/out
+    SLICE_X7Y5.D         Tilo                  0.259   avr/spi_slave/M_data_q[0]
+                                                       avr/M_cclk_detector_ready_inv1_1
+    SLICE_X7Y5.C1        net (fanout=1)        0.959   avr/M_cclk_detector_ready_inv1
+    SLICE_X7Y5.CLK       Tas                   0.373   avr/spi_slave/M_data_q[0]
+                                                       avr/spi_slave/M_data_q_0_rstpot
+                                                       avr/spi_slave/M_data_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.252ns (1.367ns logic, 3.885ns route)
+                                                       (26.0% logic, 74.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.801ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_7 (FF)
+  Destination:          avr/uart_tx/M_state_q_FSM_FFd1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.050ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.114ns (0.600 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_7 to avr/uart_tx/M_state_q_FSM_FFd1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y14.DQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[7]
+                                                       avr/cclk_detector/M_ctr_q_7
+    SLICE_X11Y14.A6      net (fanout=2)        1.268   avr/cclk_detector/M_ctr_q[7]
+    SLICE_X11Y14.A       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out2
+    SLICE_X16Y29.C3      net (fanout=10)       2.144   avr/out1
+    SLICE_X16Y29.C       Tilo                  0.255   avr/M_state_q_FSM_FFd2
+                                                       avr/M_cclk_detector_ready_inv1_2
+    SLICE_X16Y29.B4      net (fanout=1)        0.309   avr/M_cclk_detector_ready_inv11
+    SLICE_X16Y29.CLK     Tas                   0.339   avr/M_state_q_FSM_FFd2
+                                                       avr/uart_tx/M_state_q_FSM_FFd1_rstpot
+                                                       avr/uart_tx/M_state_q_FSM_FFd1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.050ns (1.329ns logic, 3.721ns route)
+                                                       (26.3% logic, 73.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.851ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_13 (FF)
+  Destination:          avr/uart_tx/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.062ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.052ns (0.600 - 0.652)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_13 to avr/uart_tx/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y16.BQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[13]
+                                                       avr/cclk_detector/M_ctr_q_13
+    SLICE_X11Y14.C2      net (fanout=2)        1.656   avr/cclk_detector/M_ctr_q[13]
+    SLICE_X11Y14.C       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out1
+    SLICE_X16Y29.D2      net (fanout=10)       2.332   avr/out
+    SLICE_X16Y29.CLK     Tas                   0.339   avr/M_state_q_FSM_FFd2
+                                                       avr/uart_tx/M_state_q_FSM_FFd2_rstpot
+                                                       avr/uart_tx/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                      5.062ns (1.074ns logic, 3.988ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.920ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_bitCtr_q_2 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.572ns (Levels of Logic = 2)
+  Clock Path Skew:      0.527ns (1.152 - 0.625)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_bitCtr_q_2 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y31.BQ      Tcko                  0.525   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_bitCtr_q_2
+    SLICE_X16Y31.D4      net (fanout=4)        0.333   avr/uart_tx/M_bitCtr_q[2]
+    SLICE_X16Y31.D       Tilo                  0.254   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A2      net (fanout=1)        0.746   avr/uart_tx/M_txReg_d2
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      5.572ns (2.216ns logic, 3.356ns route)
+                                                       (39.8% logic, 60.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.928ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_7 (FF)
+  Destination:          avr/spi_slave/M_data_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.021ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.016ns (0.324 - 0.340)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_7 to avr/spi_slave/M_data_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y14.DQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[7]
+                                                       avr/cclk_detector/M_ctr_q_7
+    SLICE_X11Y14.A6      net (fanout=2)        1.268   avr/cclk_detector/M_ctr_q[7]
+    SLICE_X11Y14.A       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out2
+    SLICE_X7Y5.D3        net (fanout=10)       1.427   avr/out1
+    SLICE_X7Y5.D         Tilo                  0.259   avr/spi_slave/M_data_q[0]
+                                                       avr/M_cclk_detector_ready_inv1_1
+    SLICE_X7Y5.C1        net (fanout=1)        0.959   avr/M_cclk_detector_ready_inv1
+    SLICE_X7Y5.CLK       Tas                   0.373   avr/spi_slave/M_data_q[0]
+                                                       avr/spi_slave/M_data_q_0_rstpot
+                                                       avr/spi_slave/M_data_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      5.021ns (1.367ns logic, 3.654ns route)
+                                                       (27.2% logic, 72.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.954ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/spi_slave/M_sck_reg_q_0 (FF)
+  Destination:          avr/spi_slave/M_bit_ct_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.401ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.610ns (0.324 - 0.934)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/spi_slave/M_sck_reg_q_0 to avr/spi_slave/M_bit_ct_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X2Y0.Q4       Tickq                 1.778   avr/M_sck_reg_q_0
+                                                       avr/spi_slave/M_sck_reg_q_0
+    SLICE_X7Y5.B4        net (fanout=4)        1.479   avr/M_sck_reg_q_0
+    SLICE_X7Y5.BMUX      Tilo                  0.337   avr/spi_slave/M_data_q[0]
+                                                       avr/spi_slave/M_bit_ct_q_2_glue_ce
+    SLICE_X7Y5.A5        net (fanout=1)        0.434   avr/spi_slave/M_bit_ct_q_2_glue_ce
+    SLICE_X7Y5.CLK       Tas                   0.373   avr/spi_slave/M_data_q[0]
+                                                       avr/spi_slave/M_bit_ct_q_2_rstpot
+                                                       avr/spi_slave/M_bit_ct_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      4.401ns (2.488ns logic, 1.913ns route)
+                                                       (56.5% logic, 43.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  14.967ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/uart_tx/M_bitCtr_q_2 (FF)
+  Destination:          avr/uart_tx/M_txReg_q (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.525ns (Levels of Logic = 2)
+  Clock Path Skew:      0.527ns (1.152 - 0.625)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/uart_tx/M_bitCtr_q_2 to avr/uart_tx/M_txReg_q
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y31.BQ      Tcko                  0.525   avr/uart_tx/M_bitCtr_q[2]
+                                                       avr/uart_tx/M_bitCtr_q_2
+    SLICE_X15Y31.B5      net (fanout=4)        0.463   avr/uart_tx/M_bitCtr_q[2]
+    SLICE_X15Y31.B       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A3      net (fanout=1)        0.564   avr/uart_tx/M_txReg_d1
+    SLICE_X15Y31.A       Tilo                  0.259   avr/uart_tx/M_txReg_d1
+                                                       avr/uart_tx/M_txReg_d3
+    OLOGIC_X9Y0.D1       net (fanout=1)        2.277   avr/uart_tx/M_txReg_d
+    OLOGIC_X9Y0.CLK0     Todck                 1.178   M_txReg_q
+                                                       avr/uart_tx/M_txReg_q
+    -------------------------------------------------  ---------------------------
+    Total                                      5.525ns (2.221ns logic, 3.304ns route)
+                                                       (40.2% logic, 59.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.145ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               reset_cond/M_stage_q_3 (FF)
+  Destination:          M_data_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.314ns (Levels of Logic = 0)
+  Clock Path Skew:      0.494ns (1.239 - 0.745)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to M_data_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y17.AMUX    Tshcko                0.535   reset_cond/M_stage_q[2]
+                                                       reset_cond/M_stage_q_3
+    OLOGIC_X7Y60.SR      net (fanout=9)        3.757   M_reset_cond_out
+    OLOGIC_X7Y60.CLK0    Tosrck                1.022   M_data_q[7]
+                                                       M_data_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      5.314ns (1.557ns logic, 3.757ns route)
+                                                       (29.3% logic, 70.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.145ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               reset_cond/M_stage_q_3 (FF)
+  Destination:          M_data_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.314ns (Levels of Logic = 0)
+  Clock Path Skew:      0.494ns (1.239 - 0.745)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to M_data_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y17.AMUX    Tshcko                0.535   reset_cond/M_stage_q[2]
+                                                       reset_cond/M_stage_q_3
+    OLOGIC_X7Y61.SR      net (fanout=9)        3.757   M_reset_cond_out
+    OLOGIC_X7Y61.CLK0    Tosrck                1.022   M_data_q[6]
+                                                       M_data_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      5.314ns (1.557ns logic, 3.757ns route)
+                                                       (29.3% logic, 70.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.146ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/spi_slave/M_sck_reg_q_0 (FF)
+  Destination:          avr/spi_slave/M_data_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.209ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.610ns (0.324 - 0.934)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/spi_slave/M_sck_reg_q_0 to avr/spi_slave/M_data_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X2Y0.Q4       Tickq                 1.778   avr/M_sck_reg_q_0
+                                                       avr/spi_slave/M_sck_reg_q_0
+    SLICE_X7Y5.B4        net (fanout=4)        1.479   avr/M_sck_reg_q_0
+    SLICE_X7Y5.B         Tilo                  0.259   avr/spi_slave/M_data_q[0]
+                                                       avr/spi_slave/_n0081_inv1
+    SLICE_X7Y5.C4        net (fanout=1)        0.320   avr/spi_slave/_n0081_inv
+    SLICE_X7Y5.CLK       Tas                   0.373   avr/spi_slave/M_data_q[0]
+                                                       avr/spi_slave/M_data_q_0_rstpot
+                                                       avr/spi_slave/M_data_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.209ns (2.410ns logic, 1.799ns route)
+                                                       (57.3% logic, 42.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.178ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               reset_cond/M_stage_q_3 (FF)
+  Destination:          M_data_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.282ns (Levels of Logic = 0)
+  Clock Path Skew:      0.495ns (1.240 - 0.745)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to M_data_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y17.AMUX    Tshcko                0.535   reset_cond/M_stage_q[2]
+                                                       reset_cond/M_stage_q_3
+    OLOGIC_X7Y63.SR      net (fanout=9)        3.725   M_reset_cond_out
+    OLOGIC_X7Y63.CLK0    Tosrck                1.022   M_data_q[4]
+                                                       M_data_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      5.282ns (1.557ns logic, 3.725ns route)
+                                                       (29.5% logic, 70.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.178ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               reset_cond/M_stage_q_3 (FF)
+  Destination:          M_data_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      5.282ns (Levels of Logic = 0)
+  Clock Path Skew:      0.495ns (1.240 - 0.745)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset_cond/M_stage_q_3 to M_data_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y17.AMUX    Tshcko                0.535   reset_cond/M_stage_q[2]
+                                                       reset_cond/M_stage_q_3
+    OLOGIC_X7Y62.SR      net (fanout=9)        3.725   M_reset_cond_out
+    OLOGIC_X7Y62.CLK0    Tosrck                1.022   M_data_q[5]
+                                                       M_data_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                      5.282ns (1.557ns logic, 3.725ns route)
+                                                       (29.5% logic, 70.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.276ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/spi_slave/M_sck_reg_q_0 (FF)
+  Destination:          avr/spi_slave/M_bit_ct_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.077ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.612ns (0.322 - 0.934)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/spi_slave/M_sck_reg_q_0 to avr/spi_slave/M_bit_ct_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X2Y0.Q4       Tickq                 1.778   avr/M_sck_reg_q_0
+                                                       avr/spi_slave/M_sck_reg_q_0
+    SLICE_X7Y6.D5        net (fanout=4)        1.037   avr/M_sck_reg_q_0
+    SLICE_X7Y6.DMUX      Tilo                  0.337   avr/M_bit_ct_q_1
+                                                       avr/M_cclk_detector_ready_inv1_SW1
+    SLICE_X7Y6.B3        net (fanout=1)        0.552   avr/N30
+    SLICE_X7Y6.CLK       Tas                   0.373   avr/M_bit_ct_q_1
+                                                       avr/spi_slave/M_bit_ct_q_0_rstpot
+                                                       avr/spi_slave/M_bit_ct_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.077ns (2.488ns logic, 1.589ns route)
+                                                       (61.0% logic, 39.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.314ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_6 (FF)
+  Destination:          avr/uart_tx/M_state_q_FSM_FFd1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.537ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.114ns (0.600 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_6 to avr/uart_tx/M_state_q_FSM_FFd1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y14.CQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[7]
+                                                       avr/cclk_detector/M_ctr_q_6
+    SLICE_X11Y14.A1      net (fanout=2)        0.755   avr/cclk_detector/M_ctr_q[6]
+    SLICE_X11Y14.A       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out2
+    SLICE_X16Y29.C3      net (fanout=10)       2.144   avr/out1
+    SLICE_X16Y29.C       Tilo                  0.255   avr/M_state_q_FSM_FFd2
+                                                       avr/M_cclk_detector_ready_inv1_2
+    SLICE_X16Y29.B4      net (fanout=1)        0.309   avr/M_cclk_detector_ready_inv11
+    SLICE_X16Y29.CLK     Tas                   0.339   avr/M_state_q_FSM_FFd2
+                                                       avr/uart_tx/M_state_q_FSM_FFd1_rstpot
+                                                       avr/uart_tx/M_state_q_FSM_FFd1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.537ns (1.329ns logic, 3.208ns route)
+                                                       (29.3% logic, 70.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.318ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_4 (FF)
+  Destination:          avr/uart_tx/M_state_q_FSM_FFd1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.533ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.114ns (0.600 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_4 to avr/uart_tx/M_state_q_FSM_FFd1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y14.AQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[7]
+                                                       avr/cclk_detector/M_ctr_q_4
+    SLICE_X11Y14.A2      net (fanout=2)        0.751   avr/cclk_detector/M_ctr_q[4]
+    SLICE_X11Y14.A       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out2
+    SLICE_X16Y29.C3      net (fanout=10)       2.144   avr/out1
+    SLICE_X16Y29.C       Tilo                  0.255   avr/M_state_q_FSM_FFd2
+                                                       avr/M_cclk_detector_ready_inv1_2
+    SLICE_X16Y29.B4      net (fanout=1)        0.309   avr/M_cclk_detector_ready_inv11
+    SLICE_X16Y29.CLK     Tas                   0.339   avr/M_state_q_FSM_FFd2
+                                                       avr/uart_tx/M_state_q_FSM_FFd1_rstpot
+                                                       avr/uart_tx/M_state_q_FSM_FFd1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.533ns (1.329ns logic, 3.204ns route)
+                                                       (29.3% logic, 70.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  15.382ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               avr/cclk_detector/M_ctr_q_7 (FF)
+  Destination:          avr/uart_tx/M_state_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      4.469ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.114ns (0.600 - 0.714)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: avr/cclk_detector/M_ctr_q_7 to avr/uart_tx/M_state_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X10Y14.DQ      Tcko                  0.476   avr/cclk_detector/M_ctr_q[7]
+                                                       avr/cclk_detector/M_ctr_q_7
+    SLICE_X11Y14.A6      net (fanout=2)        1.268   avr/cclk_detector/M_ctr_q[7]
+    SLICE_X11Y14.A       Tilo                  0.259   M_cclk_detector_ready_inv
+                                                       avr/cclk_detector/out2
+    SLICE_X16Y29.D3      net (fanout=10)       2.127   avr/out1
+    SLICE_X16Y29.CLK     Tas                   0.339   avr/M_state_q_FSM_FFd2
+                                                       avr/uart_tx/M_state_q_FSM_FFd2_rstpot
+                                                       avr/uart_tx/M_state_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                      4.469ns (1.074ns logic, 3.395ns route)
+                                                       (24.0% logic, 76.0% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clk_BUFGP/BUFG/I0
+  Logical resource: clk_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y11.I0
+  Clock network: clk_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[0]/CLK0
+  Logical resource: M_data_q_0/CK0
+  Location pin: OLOGIC_X6Y63.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[1]/CLK0
+  Logical resource: M_data_q_1/CK0
+  Location pin: OLOGIC_X6Y62.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[2]/CLK0
+  Logical resource: M_data_q_2/CK0
+  Location pin: OLOGIC_X6Y61.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_txReg_q/CLK0
+  Logical resource: avr/uart_tx/M_txReg_q/CK0
+  Location pin: OLOGIC_X9Y0.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[3]/CLK0
+  Logical resource: M_data_q_3/CK0
+  Location pin: OLOGIC_X6Y60.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[4]/CLK0
+  Logical resource: M_data_q_4/CK0
+  Location pin: OLOGIC_X7Y63.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[5]/CLK0
+  Logical resource: M_data_q_5/CK0
+  Location pin: OLOGIC_X7Y62.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[6]/CLK0
+  Logical resource: M_data_q_6/CK0
+  Location pin: OLOGIC_X7Y61.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.751ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.249ns (444.642MHz) (Tockper)
+  Physical resource: M_data_q[7]/CLK0
+  Logical resource: M_data_q_7/CK0
+  Location pin: OLOGIC_X7Y60.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: avr/M_sck_reg_q_0/CLK0
+  Logical resource: avr/spi_slave/M_sck_reg_q_0/CLK0
+  Location pin: ILOGIC_X2Y0.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: spi_ss_IBUF/CLK0
+  Logical resource: avr/spi_slave/M_ss_reg_q/CLK0
+  Location pin: ILOGIC_X3Y1.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: avr/uart_rx/M_rxd_q/CLK0
+  Logical resource: avr/uart_rx/M_rxd_q/CLK0
+  Location pin: ILOGIC_X7Y2.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.601ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.399ns (714.796MHz) (Tcp)
+  Physical resource: avr/M_block_q[3]/CLK
+  Logical resource: avr/Mshreg_M_block_q_2/CLK
+  Location pin: SLICE_X8Y30.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_miso_reg_q/CLK
+  Logical resource: avr/spi_slave/M_miso_reg_q/CK
+  Location pin: SLICE_X4Y5.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_rx/M_ctr_q[5]/CLK
+  Logical resource: avr/uart_rx/M_ctr_q_5/CK
+  Location pin: SLICE_X4Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/M_block_q[3]/CLK
+  Logical resource: avr/M_block_q_2/CK
+  Location pin: SLICE_X8Y30.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/M_block_q[3]/CLK
+  Logical resource: avr/M_block_q_3/CK
+  Location pin: SLICE_X8Y30.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_rx/M_state_q_FSM_FFd2/CLK
+  Logical resource: avr/uart_rx/M_state_q_FSM_FFd1/CK
+  Location pin: SLICE_X8Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_rx/M_state_q_FSM_FFd2/CLK
+  Logical resource: avr/uart_rx/M_state_q_FSM_FFd2/CK
+  Location pin: SLICE_X8Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_rx/M_bitCtr_q[2]/CLK
+  Logical resource: avr/uart_rx/M_bitCtr_q_1/CK
+  Location pin: SLICE_X8Y32.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_rx/M_bitCtr_q[2]/CLK
+  Logical resource: avr/uart_rx/M_bitCtr_q_2/CK
+  Location pin: SLICE_X8Y32.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_avr_rx_data[3]/CLK
+  Logical resource: avr/uart_rx/M_savedData_q_0/CK
+  Location pin: SLICE_X12Y39.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_avr_rx_data[3]/CLK
+  Logical resource: avr/uart_rx/M_savedData_q_1/CK
+  Location pin: SLICE_X12Y39.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_avr_rx_data[3]/CLK
+  Logical resource: avr/uart_rx/M_savedData_q_2/CK
+  Location pin: SLICE_X12Y39.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: M_avr_rx_data[3]/CLK
+  Logical resource: avr/uart_rx/M_savedData_q_3/CK
+  Location pin: SLICE_X12Y39.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/M_state_q_FSM_FFd2/CLK
+  Logical resource: avr/uart_tx/M_state_q_FSM_FFd1/CK
+  Location pin: SLICE_X16Y29.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/M_state_q_FSM_FFd2/CLK
+  Logical resource: avr/uart_tx/M_state_q_FSM_FFd2/CK
+  Location pin: SLICE_X16Y29.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_tx/M_bitCtr_q[2]/CLK
+  Logical resource: avr/uart_tx/M_bitCtr_q_1/CK
+  Location pin: SLICE_X16Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: avr/uart_tx/M_bitCtr_q[2]/CLK
+  Logical resource: avr/uart_tx/M_bitCtr_q_2/CK
+  Location pin: SLICE_X16Y31.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    6.444|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 990 paths, 0 nets, and 513 connections
+
+Design statistics:
+   Minimum period:   6.444ns{1}   (Maximum frequency: 155.183MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sun Oct 16 01:01:57 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 215 MB
+
+
+

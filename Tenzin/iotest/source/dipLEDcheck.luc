@@ -1,0 +1,11 @@
+module dipLEDcheck (
+    //input clk,  // clock
+    //input rst,  // reset
+    output out[8],
+    input aLUFN[8]
+  ) {
+
+  always {
+    out = aLUFN;
+  }
+}
