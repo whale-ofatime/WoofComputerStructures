@@ -23,6 +23,7 @@ module mojo_top (
   sig b[8];
   sig aLUFN[6];
   adder adder;
+  multiplier mult;
   shifter shifter;
   boolean bool;
   compare comparer;
@@ -54,6 +55,10 @@ module mojo_top (
     adder.b = b;
     adder.aLUFN = aLUFN;
     
+    mult.a = a;
+    mult.b = b;
+    mult.aLUFN = aLUFN;
+    
     shifter.a = a;
     shifter.b = b[2:0];
     shifter.aLUFN = aLUFN;
@@ -71,7 +76,12 @@ module mojo_top (
     io_led[2][2] = adder.n;
     
     case (io_dip[2][5:4]) {
-      0: io_led[0] = adder.out;
+      0: if (aLUFN[1]) {
+        io_led[0] = mult.out;
+          }else{
+          io_led[0] = adder.out;
+          }
+      //0: io_led[0] = adder.out;
       1: io_led[0] = shifter.out;
       2: io_led[0] = bool.out;
       3: io_led[0] = 0;
