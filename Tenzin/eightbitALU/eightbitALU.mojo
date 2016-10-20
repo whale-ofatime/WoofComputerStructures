@@ -2,6 +2,7 @@
 <project name="eightbitALU" board="Mojo V3" language="Lucid">
   <files>
     <src>boolean.luc</src>
+    <src>multiplier.luc</src>
     <src>shifter.luc</src>
     <src>adder.luc</src>
     <src>compare.luc</src>
