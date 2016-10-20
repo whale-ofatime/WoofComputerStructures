@@ -12,10 +12,9 @@ module adder (
   
   always {
     p = 8b0;
-    case (aLUFN[1:0]) {
+    case (aLUFN[0]) {
       0: p = a + b;
       1: p = a - b;
-      2: p = a * b;
       default: p = 0;
       }
     case (p) {

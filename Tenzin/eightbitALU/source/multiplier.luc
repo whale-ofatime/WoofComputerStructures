@@ -1,0 +1,15 @@
+module multiplier (
+    output out,
+    input a[8],
+    input b[8],
+    input aLUFN[6]
+  ) {
+
+  always {
+    case (aLUFN[1]){
+      0: out = a/b;
+      1: out = a * b;
+      default: out = 0;
+      }
+  }
+}
