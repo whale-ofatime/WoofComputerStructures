@@ -1,0 +1,10 @@
+module eightbitadder (
+    input a[8],  // 8-bit input
+    input b[8],  
+    output out[9] // 9-bit input
+  ) {
+
+  always {
+    out = a+b; // add the two input
+  }
+}

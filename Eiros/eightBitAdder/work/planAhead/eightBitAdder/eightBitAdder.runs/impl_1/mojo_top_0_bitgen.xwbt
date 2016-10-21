@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=C:\Program Files\Git\50.002proj\Eiros\eightBitAdder\work\planAhead\eightBitAdder\eightBitAdder.runs\impl_1\mojo_top_0_routed.ncd
+OUTFILE=C:\Program Files\Git\50.002proj\Eiros\eightBitAdder\work\planAhead\eightBitAdder\eightBitAdder.runs\impl_1\mojo_top_0.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=C:\Program Files\Git\50.002proj\Eiros\eightBitAdder\work\planAhead\eightBitAdder\eightBitAdder.runs\impl_1
+LICENSE=WebPack
+USER_INFO=211248302_0_0_032
